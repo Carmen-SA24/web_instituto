@@ -1,26 +1,198 @@
-@import "tailwindcss";
+/* ============================================
+   IMPORTAR BOOTSTRAP
+   ============================================ */
+@import "bootstrap/dist/css/bootstrap.min.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================
+   RESET Y CONFIGURACIÓN BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Layout Global de 2 Columnas */
+.main-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Main 75%, Sidebar 25% */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 60vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+  }
+  
+  .sidebar-column {
+    order: -1; /* Sidebar primero en móvil? O quitar para dejar al final */
   }
 }
 
+/* Nuevo Hero (Imagen Real Ajustada) */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 550px; /* MÁS ALTO: Para ver más imagen (antes 400px) */
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.hero-image-container {
+  width: 100%;
+  height: 100%; /* Ocupa exactamente los 400px */
+  position: relative;
+}
+
+.header-img {
+  position: absolute; /* Aseguramos posición absoluta */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1; /* Fondo absoluto */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+  pointer-events: none;
+  z-index: 2; /* Encima de la imagen */
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 90%;
+  z-index: 10;
+  pointer-events: none; /* Texto no bloquea */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+/* ============================================
+   VARIABLES CSS GLOBALES (TEMA CLARO)
+   ============================================ */
+:root {
+  /* Paleta de Colores Clara */
+  --primary: #4f46e5;    /* Indigo vibrante */
+  --secondary: #0ea5e9;  /* Sky blue */
+  --accent: #f59e0b;     /* Amber */
+  
+  /* Fondos y Textos (LIGHT THEME) */
+  --background: #f1f5f9; /* Slate 100 - Un poco más oscuro para que resalten las cards */
+  --foreground: #1e293b; /* Slate 800 */
+  --card-bg: #ffffff;    /* Blanco puro */
+  
+  --light: #f1f5f9;      /* Slate 100 - Gris claro */
+  --gray: #64748b;       /* Slate 500 - Texto secundario */
+  
+  /* Gradientes */
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --gradient-hover: linear-gradient(135deg, var(--secondary), var(--primary));
+
+  /* Sombras y Bordes */
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-primary: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+  
+  /* UI */
+  --radius: 10px; /* Radio profesional: Ni cuadrado ni juguete */
+  /* Fuentes */
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================
+   ESTILOS DEL BODY
+   ============================================ */
 body {
-  background: var(--background);
+  /* Fondo más perceptible para que destaquen las cajas blancas */
+  background: #eef2f6; 
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   UTILIDADES GLOBALES
+   ============================================ */
+.container-custom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 80px 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--primary); /* Azul sólido profesional, nada de morados */
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .container-custom {
+    padding: 0 1rem;
+  }
 }

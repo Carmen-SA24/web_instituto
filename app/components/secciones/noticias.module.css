@@ -1,0 +1,72 @@
+/* Estilos Tema Claro - Noticias */
+.page {
+  width: 100%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* El gradiente se mantiene */
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--gray);
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section {
+  background: var(--card-bg); /* Fondo BLANCO */
+  padding: 30px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow); /* Sombra suave */
+  border: 1px solid rgba(0,0,0,0.05); /* Borde sutil */
+  transition: var(--transition);
+}
+
+.section:hover {
+  transform: translateX(5px);
+  border-left-width: 8px;
+  box-shadow: var(--shadow-primary);
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.section p {
+  color: var(--gray);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .section {
+    padding: 20px;
+  }
+}

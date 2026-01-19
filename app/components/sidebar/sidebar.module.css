@@ -1,0 +1,170 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* SIDEBAR STYLES (Professional Dark) */
+.widget {
+  background: #1e293b; /* Slate 800 - Oscuro Profesional */
+  padding: 25px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  color: white; /* Texto base blanco */
+}
+
+.widget:hover {
+  transform: none; /* Quitamos el movimiento "juguetón" */
+}
+
+.widget h3 {
+  color: white; /* Título blanco */
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 12px;
+}
+
+.widgetList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widgetList li {
+  margin-bottom: 10px;
+}
+
+.widgetList a {
+  color: #cbd5e1; /* Gris claro (Slate 300) */
+  text-decoration: none;
+  transition: all 0.2s;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
+  margin-bottom: 5px;
+  /* Icono sutil antes del enlace */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.widgetList a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--secondary); /* Acento de color al hover */
+  transform: translateX(2px);
+}
+
+/* BUSCADOR WIDGET */
+.searchWidget {
+  background: #1e293b; /* Slate 800 */
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.searchWidget h3 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 12px;
+}
+
+.searchBox {
+  display: flex;
+  gap: 5px;
+}
+
+.searchBox input {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3); /* Input oscuro */
+  color: white;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.searchBox input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.searchBox button {
+  padding: 10px 15px;
+  background: var(--primary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s;
+}
+
+.searchBox button:hover {
+  background: var(--secondary);
+}
+
+/* VIDEO WIDGET */
+.videoContainer {
+  position: relative;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+
+.videoContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* HORARIO TABLA (NUEVO) */
+.scheduleTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.scheduleTable tr {
+  border-bottom: 1px solid var(--light);
+}
+
+.scheduleTable tr:last-child {
+  border-bottom: none;
+}
+
+.scheduleTable td {
+  padding: 8px 0;
+  color: var(--gray);
+}
+
+.scheduleTable .day {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.scheduleTable .hours {
+  text-align: right;
+  color: var(--primary);
+  font-weight: 500;
+}

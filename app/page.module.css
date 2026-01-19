@@ -1,0 +1,103 @@
+/* Main Content Wrapper */
+.homeContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 25px;
+  border-bottom: 3px solid var(--secondary); /* Borde un poco más grueso */
+  padding-bottom: 10px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* CARD STYLES (Glassmorphism / Premium White) */
+/* CARD STYLES (Minimalist Light Option A) */
+/* CARD STYLES (Professional Two-Tone) */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  /* Sombra más marcada para efecto "flotante" */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none; /* Sin borde línea */
+  border-top: 5px solid var(--primary); /* LÍNEA DE COLOR MUY VISIBLE */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover .cardImagePlaceholder {
+  background: var(--primary); /* El fondo del icono cambia a azul fuerte al hover */
+  color: white;
+}
+
+.cardImagePlaceholder {
+  height: 140px;
+  background: #e0e7ff; /* AZUL CLARO VISIBLE - NO BLANCO */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: var(--primary);
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-bottom: 0; /* Pegado al contenido para efecto bloque */
+}
+
+.cardBody {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardBody h3 {
+  color: var(--foreground); /* Texto oscuro */
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.025em; /* Toque moderno */
+}
+
+.cardBody p {
+  color: var(--gray); /* Texto gris */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.cardLink {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.2s;
+  padding: 10px 20px;
+  background: var(--primary); /* BOTÓN SÓLIDO AZUL */
+  border-radius: 50px; /* Botón píldora */
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+  display: inline-block;
+  margin-top: auto;
+}
+
+.cardLink:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(14, 165, 233, 0.3);
+  color: white; /* Asegurar texto blanco */
+}

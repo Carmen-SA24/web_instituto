@@ -1,0 +1,176 @@
+/* Navbar Styles (Light Theme) */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil */
+  padding: 15px 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  z-index: 99999;
+  position: sticky;
+  top: 0;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+/* Brand & Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover en el logo */
+.brand:hover .logoWrapper {
+  transform: scale(1.05); /* Escala suave */
+  border-color: var(--secondary);
+}
+
+.brandText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary); /* Azul corporativo */
+  letter-spacing: -0.5px;
+}
+
+/* Navigation Links */
+.navLink {
+  color: var(--foreground) !important; /* Texto oscuro */
+  font-weight: 600;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  color: var(--primary) !important;
+  transform: translateY(-2px);
+}
+
+/* Dropdown Menu Styles (CSS PURE HOVER) */
+.hoverDropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white; /* Fondo blanco */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 220px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+/* Enlaces del desplegable */
+.dropdownMenu a {
+  color: var(--foreground) !important; /* Texto oscuro */
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.dropdownMenu a:hover {
+  background: var(--light); /* Gris claro */
+  color: var(--primary) !important;
+}
+
+/* Mostrar al hacer hover en el contenedor padre */
+.hoverDropdown:hover .dropdownMenu {
+  display: block !important;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdowns normales (Fix para Bootstrap NavDropdown) */
+.navDropdown {
+  margin: 0 5px;
+}
+
+.navDropdown :global(.nav-link) {
+  color: var(--foreground) !important;
+  font-weight: 600 !important; /* Negrita igual que los demás */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.navDropdown :global(.nav-link):hover {
+  color: var(--primary) !important;
+  transform: translateY(-2px);
+}
+
+:global(.navbar-toggler) {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global(.navbar-toggler-icon) {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .logoWrapper {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .brandText {
+    font-size: 1.2rem;
+  }
+
+  /* En móvil, mostrar el menú siempre visible si está expandido, no hover */
+  .hoverDropdown:hover .dropdownMenu {
+    display: none; /* Resetear comportamiento hover en móvil */
+  }
+
+  .dropdownMenu {
+    position: static;
+    display: block; /* Mostrar siempre en móvil */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding-left: 20px;
+  }
+}
