@@ -6,6 +6,16 @@ import NewsCard from '../newscard/NewsCard';
 import Modal from '../modal/Modal';
 import { getNewsById } from '@/app/data/newsData';
 
+// ============================================================================
+// LISTA DE NOTICIAS DISPONIBLES (newsItems)
+// ============================================================================
+// Esta es la lista de tarjetas de noticias que se muestran en la página.
+// Cada item tiene un 'id' que corresponde con los datos en newsData.ts
+// 
+// IMPORTANTE: El 'id' aquí debe coincidir con una clave en newsData (archivo: app/data/newsData.ts)
+// - Si el id existe en newsData.ts → se muestra el contenido completo de la noticia
+// - Si el id NO existe en newsData.ts → se muestra el mensaje de error (notFoundNews)
+// ============================================================================
 const newsItems = [
   {
     id: 'jefatura-estudios',
@@ -38,6 +48,8 @@ const newsItems = [
     description: 'Galería multimedia de eventos y actividades del instituto.',
   },
   {
+    // Esta noticia tiene un id que NO existe en newsData.ts
+    // Por eso cuando haces clic, se mostrará el mensaje de error (notFoundNews)
     id: 'noticia-inexistente',
     icon: '❓',
     title: 'Noticia de Prueba',
@@ -59,6 +71,8 @@ export default function NoticiasContent() {
     setSelectedNews(null);
   };
 
+  // Aquí se obtienen los datos completos de la noticia desde newsData.ts
+  // La función getNewsById busca el id en newsData y devuelve el contenido
   const newsDetail = selectedNews ? getNewsById(selectedNews) : null;
 
   return (
