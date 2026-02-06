@@ -1,5 +1,31 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## 📰 ¿Dónde están los datos de las noticias?
+
+Los datos de las noticias están en: **`app/data/newsData.ts`**
+
+```
+app/
+├── data/
+│   ├── newsData.ts     ← AQUÍ ESTÁN TODOS LOS DATOS DE NOTICIAS
+│   └── README.md       ← Documentación completa de la estructura de datos
+└── components/
+    └── secciones/
+        └── Noticias.tsx  ← Componente que usa los datos
+```
+
+### Flujo de Datos:
+
+1. **newsData.ts** → Define todos los datos de las noticias (contenido completo)
+2. **Noticias.tsx** → Define qué noticias mostrar (solo tarjetas)
+3. Cuando haces clic en una tarjeta → Se busca el contenido en newsData.ts
+4. Si el ID existe → Muestra la noticia completa
+5. Si el ID NO existe → Muestra mensaje de error (404)
+
+Para más detalles, consulta: [`app/data/README.md`](./app/data/README.md)
+
+---
+
 ## Getting Started
 
 First, run the development server:
