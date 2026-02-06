@@ -37,6 +37,12 @@ const newsItems = [
     title: 'Videos y Fotos',
     description: 'Galería multimedia de eventos y actividades del instituto.',
   },
+  {
+    id: 'noticia-inexistente',
+    icon: '❓',
+    title: 'Noticia de Prueba',
+    description: 'Esta noticia no existe en los datos. Haz clic para ver el mensaje de error.',
+  },
 ];
 
 export default function NoticiasContent() {
