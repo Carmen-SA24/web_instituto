@@ -3,12 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image"; // Importamos Image
-import {
-  Navbar as BSNavbar,
-  Nav,
-  NavDropdown,
-  Container,
-} from "react-bootstrap";
+import { Navbar as BSNavbar, Nav, Container } from "react-bootstrap";
 import styles from "./navbar.module.css"; // Import correcto en minúsculas
 
 export default function Navbar() {
@@ -26,7 +21,7 @@ export default function Navbar() {
         <BSNavbar.Brand as={Link} href="/" className={styles.brand}>
           <div className={styles.logoWrapper}>
             <Image
-              src="/logo_cura_valera.png" // Nombre correcto del archivo
+              src="/logo_cura_valera.png" 
               alt="Logo IES Cura Valera"
               width={60}
               height={60}
@@ -44,19 +39,26 @@ export default function Navbar() {
         <BSNavbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
             {/* Elemento de menú desplegable: Inicio */}
-            <NavDropdown
-              title="Inicio"
-              id="inicio-dropdown"
-              className={styles.navDropdown}
-            >
-              <NavDropdown.Item href="#">Plan de Centro</NavDropdown.Item>
-              <NavDropdown.Item href="#">
-                Plan de Actuación Digital
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#">
-                Otros documentos de funcionamiento interno
-              </NavDropdown.Item>
-            </NavDropdown>
+            <div className={`nav-item dropdown ${styles.hoverDropdown}`}>
+              <Link
+                href="/"
+                className={`nav-link dropdown-toggle ${styles.navLink}`}
+                role="button"
+              >
+                Inicio
+              </Link>
+              <div className={`dropdown-menu ${styles.dropdownMenu}`}>
+                <Link href="#" className="dropdown-item">
+                  Plan de Centro
+                </Link>
+                <Link href="#" className="dropdown-item">
+                  Plan de Actuación Digital
+                </Link>
+                <Link href="#" className="dropdown-item">
+                  Otros documentos de funcionamiento interno
+                </Link>
+              </div>
+            </div>
 
             {/* Elemento de menú desplegable: Noticias */}
             <div className={`nav-item dropdown ${styles.hoverDropdown}`}>

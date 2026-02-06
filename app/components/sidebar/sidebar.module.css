@@ -15,7 +15,7 @@
 }
 
 .widget:hover {
-  transform: none; /* Quitamos el movimiento "juguetón" */
+  transform: none;
 }
 
 .widget h3 {

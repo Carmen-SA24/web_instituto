@@ -15,9 +15,9 @@
 /* Layout Global de 2 Columnas */
 .main-layout {
   display: grid;
-  grid-template-columns: 3fr 1fr; /* Main 75%, Sidebar 25% */
+  grid-template-columns: 2fr 1fr; /* Main 66%, Sidebar 33% */
   gap: 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px;
   min-height: 60vh;

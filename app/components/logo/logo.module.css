@@ -1,0 +1,25 @@
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.logoLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.logoImage {
+  display: block;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.logoLink:hover .logoImage {
+  filter: brightness(1);
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "../logo/logo";
 import styles from "./footer.module.css";
 
 export default function Footer() {
@@ -39,50 +39,39 @@ export default function Footer() {
           <section className={styles.social}>
             <h4 className={styles.socialTitle}>Síguenos</h4>
             <div className={styles.socialIcons}>
-              <Link
-                href="#"
-                className={styles.socialIcon}
-                aria-label="Facebook"
-              >
-                <Image
-                  src="/facebook.png"
-                  alt="Facebook"
-                  width={30}
-                  height={30}
-                />
-              </Link>
-              <Link href="#" className={styles.socialIcon} aria-label="Twitter">
-                <Image
-                  src="/twitter.png"
-                  alt="Twitter"
-                  width={30}
-                  height={30}
-                />
-              </Link>
-              <Link
-                href="#"
-                className={styles.socialIcon}
-                aria-label="Instagram"
-              >
-                <Image
-                  src="/instagram.png"
-                  alt="Instagram"
-                  width={30}
-                  height={30}
-                />
-              </Link>
-              <Link href="#" className={styles.socialIcon} aria-label="YouTube">
-                <Image
-                  src="/youtube.png"
-                  alt="YouTube"
-                  width={30}
-                  height={30}
-                />
-              </Link>
+              <Logo 
+                src="/facebook.png"
+                alt="Facebook"
+                href="https://facebook.com"
+                width={30}
+                height={30}
+              />
+              <Logo 
+                src="/twitter.png"
+                alt="Twitter"
+                href="https://twitter.com"
+                width={30}
+                height={30}
+              />
+              <Logo 
+                src="/instagram.png"
+                alt="Instagram"
+                href="https://instagram.com"
+                width={30}
+                height={30}
+              />
+              <Logo 
+                src="/youtube.png"
+                alt="YouTube"
+                href="https://youtube.com"
+                width={30}
+                height={30}
+              />
             </div>
           </section>
         </div>
 
+  
         {/* Derechos de autor: Información sobre la propiedad legal del sitio */}
         <div className={styles.copyright}>
           <p>

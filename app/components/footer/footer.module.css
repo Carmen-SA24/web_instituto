@@ -148,6 +148,32 @@
   color: white;
 }
 
+/* Sección de Logos */
+.logosSection {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logosTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.logosGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .content {

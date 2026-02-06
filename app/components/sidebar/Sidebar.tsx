@@ -1,11 +1,19 @@
 import Link from "next/link";
 import styles from "./sidebar.module.css";
 
+// Lista de enlaces del sidebar. Añadimos aquí nuevos items fácilmente.
+const sidebarLinks = [
+  { href: "/noticias", text: "📅 Calendario Escolar" },
+  { href: "/oferta-educativa", text: "📝 Secretaría Virtual" },
+  { href: "/biblioteca", text: "📖 Club de Lectura" },
+  { href: "/contacto", text: "📍 Ubicación" },
+];
+
 export default function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       {/* Widget de búsqueda: Permite al usuario buscar contenido en el sitio */}
-      <div className={styles.searchWidget}>
+      <section className={styles.searchWidget}>
         <h3>Buscar</h3>
         <div className={styles.searchBox}>
           <input
@@ -15,28 +23,22 @@ export default function Sidebar() {
           />
           <button>🔍</button>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.widget}>
+      <section className={styles.widget}>
         <h3>Enlaces Rápidos</h3>
         <ul className={styles.widgetList}>
-          <li>
-            <Link href="/noticias">📅 Calendario Escolar</Link>
-          </li>
-          <li>
-            <Link href="/oferta-educativa">📝 Secretaría Virtual</Link>
-          </li>
-          <li>
-            <Link href="/biblioteca">📖 Club de Lectura</Link>
-          </li>
-          <li>
-            <Link href="/contacto">📍 Ubicación</Link>
-          </li>
+          {/* Generamos los enlaces automáticamente desde la lista de arriba */}
+          {sidebarLinks.map((link, index) => (
+            <li key={index}>
+              <Link href={link.href}>{link.text}</Link>
+            </li>
+          ))}
         </ul>
-      </div>
+      </section>
 
       {/* Widget de video: Muestra un video de presentación del centro */}
-      <div className={styles.widget}>
+      <section className={styles.widget}>
         <h3>Conoce nuestro centro</h3>
         <div className={styles.videoContainer}>
           <iframe
@@ -46,7 +48,8 @@ export default function Sidebar() {
             allowFullScreen
           ></iframe>
         </div>
-      </div>
+      </section>
+      
     </aside>
   );
 }
