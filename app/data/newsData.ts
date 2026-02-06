@@ -1,3 +1,10 @@
+// ============================================================================
+// ARCHIVO DE DATOS DE NOTICIAS
+// ============================================================================
+// Este archivo contiene TODOS los datos de las noticias del instituto.
+// Aquí es donde se define el contenido completo de cada noticia.
+// ============================================================================
+
 export interface NewsDetail {
   id: string;
   title: string;
@@ -6,6 +13,9 @@ export interface NewsDetail {
   content: string;
 }
 
+// AQUÍ ESTÁN LOS DATOS DE LAS NOTICIAS (newsData)
+// Este objeto contiene todas las noticias disponibles en el sistema.
+// Cada noticia tiene: id, título, imagen, texto alternativo y contenido completo.
 export const newsData: Record<string, NewsDetail> = {
   'jefatura-estudios': {
     id: 'jefatura-estudios',
@@ -64,6 +74,9 @@ Todos los materiales audiovisuales están disponibles en nuestra plataforma digi
   },
 };
 
+// NOTICIA DE ERROR (notFoundNews)
+// Esta es la noticia que se muestra cuando se busca una noticia que no existe.
+// Por ejemplo, cuando haces clic en "Noticia de Prueba" (noticia-inexistente)
 export const notFoundNews: NewsDetail = {
   id: 'not-found',
   title: 'NADA QUE MOSTRAR',
@@ -72,6 +85,9 @@ export const notFoundNews: NewsDetail = {
   content: 'Lo sentimos, la noticia que buscas no está disponible en este momento. Por favor, vuelve al inicio o explora otras secciones del sitio.'
 };
 
+// FUNCIÓN PARA OBTENER UNA NOTICIA POR SU ID
+// Esta función busca la noticia en newsData usando el id.
+// Si no la encuentra, devuelve notFoundNews (el mensaje de error).
 export function getNewsById(id: string): NewsDetail {
   return newsData[id] || notFoundNews;
 }
